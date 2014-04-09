@@ -14,3 +14,8 @@ tfidf = models.TfidfModel(corpus)
 
 vec = [(0, 1), (4, 1)]
 print(tfidf[vec])
+
+
+index = similarities.SparseMatrixSimilarity(tfidf[corpus], num_features=12)
+sims = index[tfidf[vec]]
+print(list(enumerate(sims)))
